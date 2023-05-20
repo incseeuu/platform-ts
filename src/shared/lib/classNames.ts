@@ -1,5 +1,3 @@
-
-
 type Mods = Record<string, boolean | string>
 
 export const classNames = (mainClass: string, mods: Mods, additionalClass: string[]): string => {
