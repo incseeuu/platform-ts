@@ -1,0 +1,21 @@
+.container {
+  height: calc(100vh - var(--navbar-height));
+  width: var(--sidebar-width);
+  background: var(--inverted-bg-color);
+
+  position: relative;
+
+  transition: 0.3s ease-in-out;
+}
+
+.collapsed {
+  width: var(--sidebar-width-collaped);
+}
+
+.switchers {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
