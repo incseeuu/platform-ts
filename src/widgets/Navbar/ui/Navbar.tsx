@@ -1,7 +1,8 @@
 import React from 'react';
 import {classNames} from "shared/lib/classNames";
 import s from './styles.module.scss'
-import {AppLink, AppLinkTheme} from "shared/ui/AppLink/AppLink";
+import {ToggleTheme} from "widgets/ToggleTheme";
+import {AppLink, AppLinkTheme} from "shared/ui";
 
 
 interface Props {
@@ -14,6 +15,7 @@ export const Navbar = ({className}: Props) => {
         <div className={classNames(s.container, {}, [className])}>
             <div className={s.leftSide}>
                 <h4>Platform</h4>
+                <ToggleTheme/>
             </div>
             <div className={s.rightSide}>
                 <AppLink to={'/'} theme={AppLinkTheme.SECONDARY}>Home</AppLink>
