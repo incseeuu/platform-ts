@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+  height: var(--navbar-height);
+  background: var(--inverted-bg-color);
+}
+
+.leftSide {
+  color: var(--inverted-primary-color);
+}
+
+.rightSide {
+  display: flex;
+  gap: 1rem;
+}
