@@ -14,7 +14,7 @@ const App = () => {
     return (
         <div className={classNames('app', {} , [theme])}>
             <header>
-                <Navbar/>
+                {/*<Navbar/>*/}
             </header>
             <main>
                 <Sidebar/>

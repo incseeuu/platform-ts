@@ -1,7 +1,12 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: calc(100vh - var(--navbar-height));
   width: var(--sidebar-width);
-  background: var(--inverted-bg-color);
+  background: var(--third-bg-color);
+  border-radius: 32px;
+  margin: 32px;
 
   position: relative;
 
@@ -12,10 +17,83 @@
   width: var(--sidebar-width-collaped);
 }
 
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .logoContainer {
+    align-self: center;
+    position: relative;
+
+    top: -47px;
+    width: 193px;
+    height: 193px;
+
+    background: radial-gradient(30.29% 30.29% at 50% 50%,
+            rgba(94, 211, 243, 0.18) 10%,
+            rgba(94, 211, 243, 0.106) 25.55%,
+            rgba(94, 211, 243, 0.07) 47.27%,
+            rgba(94, 211, 243, 0.038) 69.66%,
+            rgba(94, 211, 243, 0) 100%);
+
+    .logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: -4rem 0 0 0h;
+    transition: 0.3s ease-in-out;
+    z-index: 1;
+
+    a span {
+      transition: 0.3s ease-in-out;
+    }
+  }
+
+  .unlinks {
+
+    a span{
+      opacity: 0;
+    }
+  }
+}
+
+.collapseBtnContainer {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  transition: 0.3s ease-in-out;
+
+  .collapseBtn {
+    cursor: pointer;
+    padding: 0;
+    margin: 0 5px 0 0;
+    background: none;
+    outline: none;
+    border: none;
+    transition: 0.3s ease-in-out;
+  }
+
+  .collapsedBtnTransform {
+    transform: rotate(0.5turn);
+  }
+}
+
+.collapsedBtnContainerTransform {
+  width: 60%;
+}
+
 .switchers {
-  position: absolute;
-  bottom: 40px;
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: 40px;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Theme, useTheme} from "app/providers/ThemeProvider";
-import LightTheme from "shared/assets/theme-light.svg"
-import DarkTheme from "shared/assets/theme-dark.svg"
+import LightTheme from "shared/assets/light.svg"
+import DarkTheme from "shared/assets/dark.svg"
 import {Button, ButtonTheme} from "shared/ui";
 
 interface Props {

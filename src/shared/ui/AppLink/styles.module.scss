@@ -1,12 +1,31 @@
 .container {
   text-decoration: none;
+  color: var(--text-color);
+  padding: 5px;
+}
+
+//.primary {
+//  color: var(--primary-color);
+//}
+//
+//.secondary {
+//  color: var(--secondary-color);
+//}
+
+.link {
+  display: flex;
+  gap: 10px;
+  margin-left: 1rem;
+
+  div{
+    min-width: 1.5rem;
+    height: 24px;
+  }
+}
+
+.active {
+  background: linear-gradient(89.97deg, rgba(94, 211, 243, 0.3) 1.15%, rgba(94, 211, 243, 0) 99.97%);
+  border-left: 2px solid #5ED3F3;
+
   color: var(--primary-color);
-}
-
-.primary {
-  color: var(--inverted-primary-color);
-}
-
-.secondary {
-  color: var(--inverted-secondary-color);
 }
