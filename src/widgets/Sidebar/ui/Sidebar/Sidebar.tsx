@@ -72,7 +72,7 @@ export const Sidebar = ({className}: Props) => {
                     onClick={() => setCollapsed(prevState => !prevState)}
                 ><Collapse/></button>
             </div>
-            <div className={s.switchers}>
+            <div className={classNames(s.switchers,{}, [])}>
                 <ToggleTheme/>
                 <ToggleLanguage className={s.lang}/>
             </div>
