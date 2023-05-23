@@ -49,7 +49,7 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    margin: -4rem 0 0 0h;
+    margin: -4rem 0 0 0;
     transition: 0.3s ease-in-out;
     z-index: 1;
 
@@ -70,6 +70,7 @@
   display: flex;
   width: 100%;
   justify-content: end;
+  margin-top: -5rem;
   transition: 0.3s ease-in-out;
 
   .collapseBtn {
@@ -96,4 +97,8 @@
   justify-content: center;
   width: 100%;
   margin-bottom: 40px;
+}
+
+.lang {
+  margin-left: 1rem;
 }

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {classNames} from "shared/lib/classNames";
 import s from './styles.module.scss'
 import {ToggleTheme} from "widgets/ToggleTheme";
-import {AppLink, AppLinkTheme, Button, ButtonTheme} from "shared/ui";
+import {AppLink, AppLinkTheme} from "shared/ui";
 import Logo from 'shared/assets/logo.svg'
 import Collapse from 'shared/assets/collapse.svg'
 import HomeSVG from 'shared/assets/home.svg'
@@ -10,12 +10,15 @@ import AboutSVG from 'shared/assets/about.svg'
 import ArticleSVG from 'shared/assets/article.svg'
 import ProfileSVG from 'shared/assets/profile.svg'
 import {useLocation} from "react-router-dom";
+import {ToggleLanguage} from "widgets/ToggleLanguage";
+import {useTranslation} from "react-i18next";
 
 interface Props {
     className?: string
 }
 
 export const Sidebar = ({className}: Props) => {
+    const { t} = useTranslation()
 
     const {pathname} = useLocation()
 
@@ -37,25 +40,25 @@ export const Sidebar = ({className}: Props) => {
                         className={pathname === '/' ? 'active' : ''}
                         to={'/'}
                         theme={AppLinkTheme.PRIMARY}
-                        title={'Home'}
+                        title={t('Home')}
                     ><HomeSVG/></AppLink>
                     <AppLink
                         className={pathname === '/profile' ? 'active' : ''}
                         to={'/profile'}
                         theme={AppLinkTheme.PRIMARY}
-                        title={'Profile'}
+                        title={t('Profile')}
                     ><ProfileSVG/></AppLink>
                     <AppLink
                         className={pathname === '/article' ? 'active' : ''}
                         to={'/article'}
                         theme={AppLinkTheme.PRIMARY}
-                        title={'Article'}
+                        title={t('Article')}
                     ><ArticleSVG/></AppLink>
                     <AppLink
                         className={pathname === '/about' ? 'active' : ''}
                         to={'/about'}
                         theme={AppLinkTheme.PRIMARY}
-                        title={'About'}
+                        title={t('About')}
                     ><AboutSVG/></AppLink>
                 </div>
             </div>
@@ -71,7 +74,7 @@ export const Sidebar = ({className}: Props) => {
             </div>
             <div className={s.switchers}>
                 <ToggleTheme/>
-                {/*LanguageSwitcher*/}
+                <ToggleLanguage className={s.lang}/>
             </div>
         </div>
     );
