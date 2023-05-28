@@ -1,1 +1,1 @@
-export {ToggleLanguage} from './ui/ToggleLanguage'
+export { ToggleLanguage } from './ui/ToggleLanguage'

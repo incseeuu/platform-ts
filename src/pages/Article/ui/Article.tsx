@@ -1,17 +1,16 @@
-import React from 'react';
-import {classNames} from "shared/lib/classNames";
+import { classNames } from 'shared/lib/classNames'
 import s from './styles.module.scss'
 
 interface Props {
-    className?: string
+  className?: string
 }
 
-const Article = ({className}: Props) => {
-    return (
-        <div className={classNames(s.container, {}, [className])}>
+const Article = ({ className }: Props) => {
+  return (
+        <div className={classNames(s.container, {}, [className as string])}>
             Article
         </div>
-    );
-};
+  )
+}
 
 export default Article

@@ -1,8 +1,3 @@
-import {lazy} from "react";
+import { lazy } from 'react'
 
-export const HomeAsyncPage = lazy(() => new Promise(res => {
-    setTimeout(() => {
-        // @ts-ignore
-        res(import('./Home'))
-    }, 2000)
-}))
+export const HomeAsyncPage = lazy(async () => (await import('./Home')))

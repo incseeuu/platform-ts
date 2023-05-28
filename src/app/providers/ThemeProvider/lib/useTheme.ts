@@ -1,24 +1,26 @@
-import {useContext} from "react";
-import {LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext} from "app/providers/ThemeProvider/lib/ThemeContext";
+import { useContext } from 'react'
+import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext'
 
 interface UseThemeReturnValue {
-    theme: Theme,
-    toggleTheme: () => void
+  theme: Theme
+  toggleTheme: () => void
 }
 
 export const useTheme = (): UseThemeReturnValue => {
+  const { theme, setTheme } = useContext(ThemeContext)
 
-    const {theme,setTheme} = useContext(ThemeContext)
-
-
-    const toggleTheme = () => {
-        const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
-        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
-        setTheme(newTheme)
+  const toggleTheme = () => {
+    const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
+    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
+    if (setTheme != null) {
+      setTheme(newTheme)
     }
+  }
 
-    return {
-        theme,
-        toggleTheme
-    }
+  return {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    theme,
+    toggleTheme
+  }
 }
