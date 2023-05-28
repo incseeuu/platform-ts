@@ -6,7 +6,7 @@ import 'shared/config/i18n/i18n'
 
 const root = document.getElementById('root')
 
-createRoot(root).render(
+createRoot(root as HTMLElement).render(
     <BrowserRouter>
         <ThemeProvider>
             <App/>

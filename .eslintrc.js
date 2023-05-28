@@ -6,7 +6,8 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'standard-with-typescript',
-    'plugin:react/jsx-runtime'
+    'plugin:react/jsx-runtime',
+    'plugin:i18next/recommended'
   ],
   overrides: [],
   parserOptions: {
@@ -15,10 +16,12 @@ module.exports = {
     project: './tsconfig.json'
   },
   plugins: [
-    'react'
+    'react',
+    'i18next'
   ],
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-misused-promises': 'off'
+    // 'i18next/no-literal-string': ['error', { markupOnly: true }]
   }
 }
