@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react'
+import { Suspense } from 'react'
 import './styles/index.scss'
 import { classNames } from 'shared/lib/classNames'
 import AppRouter from 'app/providers/routing/AppRouter'
