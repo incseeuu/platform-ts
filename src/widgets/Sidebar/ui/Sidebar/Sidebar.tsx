@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames'
+import { classNames } from 'shared/lib/classNames/classNames'
 import s from './styles.module.scss'
 import { ToggleTheme } from 'widgets/ToggleTheme'
 import { AppLink, AppLinkTheme } from 'shared/ui'
@@ -26,6 +26,7 @@ export const Sidebar = ({ className }: Props) => {
 
   return (
         <div
+          data-testid={'sidebar'}
             className={classNames(
               s.container,
               { [s.collapsed]: collapsed },
@@ -68,9 +69,11 @@ export const Sidebar = ({ className }: Props) => {
               [])}
             >
                 <button
+                  data-testid={'sidebar-toggle'}
                     className={classNames(s.collapseBtn, { [s.collapsedBtnTransform]: collapsed }, [])}
                     onClick={() => { setCollapsed(prevState => !prevState) }}
-                ><Collapse/></button>
+                ><Collapse/>
+                </button>
             </div>
             <div className={classNames(s.switchers, {}, [])}>
                 <ToggleTheme/>
