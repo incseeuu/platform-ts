@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 import './styles/index.scss'
 import { classNames } from 'shared/lib/classNames'
 import AppRouter from 'app/providers/routing/AppRouter'
@@ -17,10 +17,10 @@ const App = () => {
             <main>
                 <Suspense fallback={''}>
                     <Sidebar/>
-                </Suspense>
-                <div className={classNames('content')}>
+                  <div className={classNames('content')}>
                     <AppRouter/>
-                </div>
+                  </div>
+                </Suspense>
             </main>
 
         </div>
