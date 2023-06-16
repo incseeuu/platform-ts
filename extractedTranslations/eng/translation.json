@@ -1,10 +1,11 @@
 {
+  "Главная": "Home",
+  "О нас": "About",
   "Перезагрузить страницу": "Reload page",
+  "Платформа": "Platform",
   "Произошла ошибка": "Something went wrong",
+  "Статьи": "Article",
   "Страница не найдена": "Page not found",
   "Страницы не существует": "Page not found",
-  "Платформа":"Platform",
-  "Главная":"Home",
-  "О нас":"About",
-  "Статьи":"Article"
+  "Профиль":"Profile"
 }

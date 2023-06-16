@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Button, ButtonTheme } from 'shared/ui'
-import RU from 'shared/assets/RU.svg'
-import NOT_RU from 'shared/assets/NOT_RU.svg'
+import Ru from 'shared/assets/RU.svg'
+import NotRu from 'shared/assets/NOTRU.svg'
 import s from './styles.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
 
@@ -20,7 +20,7 @@ export const ToggleLanguage = ({ className }: Props) => {
             className={classNames(s.langSwitcher, {}, [className as string])}
             onClick={toggle}
             theme={ButtonTheme.CLEAR}>
-            {i18n.language === 'ru' ? <RU/> : <NOT_RU/>}
+            {i18n.language === 'ru' ? <Ru/> : <NotRu/>}
         </Button>
   )
 }
