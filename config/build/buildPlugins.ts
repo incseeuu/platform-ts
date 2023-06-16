@@ -6,7 +6,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 export const buildPlugins = ({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] => {
-  return [
+  const plugins: webpack.WebpackPluginInstance[] = [
     new HtmlWebpackPlugin({
       template: paths.html
     }),
@@ -18,10 +18,16 @@ export const buildPlugins = ({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev)
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new ReactRefreshWebpackPlugin(),
+    new ReactRefreshWebpackPlugin()
+
+  ]
+
+  if (isDev) {
+    plugins.push(new webpack.HotModuleReplacementPlugin())
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
-    new BundleAnalyzerPlugin({ openAnalyzer: false })
-  ]
+    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }))
+  }
+
+  return plugins
 }
