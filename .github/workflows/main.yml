@@ -1,7 +1,7 @@
 name: linting, testing, building
 on:
   push:
-    branches: [master]
+    branches: [master, loki_ci]
   pull_request:
     branches: [master]
 jobs:
@@ -27,3 +27,8 @@ jobs:
         run: yarn run lint:scss
       - name: unit testing
         run: yarn run test:unit
+      - name: build storybook
+        run: storybook:build
+      - name: ui test/loki
+        run: loki --requireReference --reactUri file:./storybook-static
+
