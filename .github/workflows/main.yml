@@ -28,7 +28,7 @@ jobs:
       - name: unit testing
         run: yarn run test:unit
       - name: build storybook
-        run: storybook:build
+        run: yarn storybook:build
       - name: ui test/loki
         run: loki --requireReference --reactUri file:./storybook-static
 
