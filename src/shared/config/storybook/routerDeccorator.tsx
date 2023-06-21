@@ -1,4 +1,4 @@
 import { type FC, type ReactNode } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 
-export const RouterDecorator: FC<{ children: ReactNode }> = ({ children }) => <BrowserRouter>{children}</BrowserRouter>
+export const RouterDecorator: FC<{ children: ReactNode }> = ({ children }) => <MemoryRouter>{children}</MemoryRouter>

@@ -4,7 +4,8 @@ import s from './styles.module.scss'
 
 export enum ButtonTheme {
   CLEAR = 'clear',
-  OUTLINE = 'outline'
+  OUTLINE = 'outline',
+
 }
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
