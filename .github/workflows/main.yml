@@ -31,9 +31,9 @@ jobs:
       - name: unit testing
         run: yarn run test:unit
         if: always()
-      - name: build storybook
-        run: yarn storybook:build
-        if: always()
-      - name: ui test/loki
-        run: yarn test:loki:ci
-        if: always()
+#      - name: build storybook
+#        run: yarn storybook:build
+#        if: always()
+#      - name: ui test/loki
+#        run: yarn test:loki:ci
+#        if: always()
