@@ -1,6 +1,10 @@
 import 'app/styles/index.scss'
-import { type Theme } from 'app/providers/ThemeProvider'
+import { type Theme, ThemeProvider } from 'app/providers/ThemeProvider'
 import { type StoryFn } from '@storybook/react'
 
 // eslint-disable-next-line react/display-name
-export const ThemeDecorator = (theme: Theme) => (Story: StoryFn) => <div className={`app ${theme}`}><Story/></div>
+export const ThemeDecorator = (theme: Theme) => (Story: StoryFn) => (
+  <ThemeProvider>
+    <div className={`app ${theme}`}><Story/></div>
+  </ThemeProvider>
+)

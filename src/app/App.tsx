@@ -1,9 +1,9 @@
 import { Suspense } from 'react'
-import './styles/index.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
 import AppRouter from 'app/providers/routing/AppRouter'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { Sidebar } from 'widgets/Sidebar'
+import { Login } from 'widgets/Login'
 
 const App = () => {
   const { theme } = useTheme()
@@ -13,6 +13,7 @@ const App = () => {
 
             <header>
                 {/* <Navbar/> */}
+
             </header>
             <main>
                 <Suspense fallback={''}>
@@ -20,6 +21,7 @@ const App = () => {
                   <div className={classNames('content')}>
                     <AppRouter/>
                   </div>
+                  <Login/>
                 </Suspense>
             </main>
 
