@@ -11,8 +11,8 @@ export const Login = () => {
   }
   return (
         <div >
-          <Button theme={ButtonTheme.OUTLINE} onClick={toggleModal}>{t('login')}</Button>
-          <Modal opened={show} onClose={toggleModal}>{t('login')}</Modal>
+          <Button theme={ButtonTheme.OUTLINE} onClick={toggleModal}></Button>
+          <Modal opened={show} onClose={toggleModal}><hr/></Modal>
         </div>
   )
 }
