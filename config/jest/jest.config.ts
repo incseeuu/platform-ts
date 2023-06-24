@@ -15,7 +15,7 @@ export default {
 
   // Automatically clear mock calls, instances, contexts and results before every test
   globals: {
-    __IS_DEV: true
+    __IS_DEV__: true
   },
   clearMocks: true,
   coveragePathIgnorePatterns: [
