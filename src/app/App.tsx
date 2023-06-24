@@ -6,10 +6,8 @@ import { Sidebar } from 'widgets/Sidebar'
 import { Login } from 'widgets/Login'
 
 const App = () => {
-  const { theme } = useTheme()
-
   return (
-        <div className={classNames('app', {}, [theme])}>
+        <div className={classNames('app', {}, [])}>
 
             <header>
                 {/* <Navbar/> */}

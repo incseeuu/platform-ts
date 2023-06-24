@@ -7,16 +7,6 @@
   transition: 0.3s ease-in-out;
 }
 
-.container.dark {
-  --inverted-bg-color: #FFF;
-  --inverted-text-color: #141C1F;
-}
-
-.container.light {
-  --inverted-bg-color: #000;
-  --inverted-text-color: #DBDBDB;
-}
-
 .overlay {
   width: 100%;
   height: 100%;
@@ -29,8 +19,8 @@
 
 .content {
   padding: 10px;
-  background: var(--inverted-bg-color);
-  color: var(--inverted-text-color);
+  background: var(--third-bg-color);
+  color: var(--primary-color);
   border-radius: 10px;
 }
 

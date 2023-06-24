@@ -7,15 +7,19 @@ import './app/styles/index.scss'
 import { ErrorBoundary } from 'react-error-boundary'
 import { PageError } from 'widgets/PageError'
 import { Suspense } from 'react'
+import { StoreProvider } from 'app/providers/StoreProvider'
 
 const root = document.getElementById('root')
 
 createRoot(root as HTMLElement).render(
+  <StoreProvider>
     <BrowserRouter>
       <ErrorBoundary fallback={<Suspense><PageError/></Suspense>}>
-          <ThemeProvider>
-            <App/>
-          </ThemeProvider>
-        </ErrorBoundary>
+        <ThemeProvider>
+          <App/>
+        </ThemeProvider>
+      </ErrorBoundary>
     </BrowserRouter>
+  </StoreProvider>
+
 )

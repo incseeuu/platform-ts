@@ -12,7 +12,7 @@ export const Login = () => {
   return (
         <div >
           <Button theme={ButtonTheme.OUTLINE} onClick={toggleModal}></Button>
-          <Modal opened={show} onClose={toggleModal}><hr/></Modal>
+          <Modal opened={show} onClose={toggleModal}>Hello</Modal>
         </div>
   )
 }
