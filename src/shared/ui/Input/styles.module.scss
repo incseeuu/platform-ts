@@ -1,0 +1,21 @@
+.input {
+  padding: 8px 16px;
+  border-radius: 48px;
+  border: 1px var(--primary-color) solid;
+  color: var(--text-color);
+  background: transparent;
+  caret-color: var(--primary-color);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active{
+  -webkit-text-fill-color: var(--text-color);
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: transparent;
+}

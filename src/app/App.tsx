@@ -1,17 +1,14 @@
 import { Suspense } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import AppRouter from 'app/providers/routing/AppRouter'
-import { useTheme } from 'app/providers/ThemeProvider'
 import { Sidebar } from 'widgets/Sidebar'
-import { Login } from 'widgets/Login'
+import { LoginModal } from 'features/Authorization'
 
 const App = () => {
   return (
         <div className={classNames('app', {}, [])}>
 
             <header>
-                {/* <Navbar/> */}
-
             </header>
             <main>
                 <Suspense fallback={''}>
@@ -19,7 +16,7 @@ const App = () => {
                   <div className={classNames('content')}>
                     <AppRouter/>
                   </div>
-                  <Login/>
+                  <LoginModal/>
                 </Suspense>
             </main>
 

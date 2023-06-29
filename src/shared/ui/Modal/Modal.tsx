@@ -1,6 +1,6 @@
 import s from './styles.module.scss'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { type MouseEvent, type ReactNode, useCallback, useEffect } from 'react'
+import { classNames } from 'shared/lib'
+import { type MouseEvent, type ReactNode, useCallback, useEffect, useState } from 'react'
 import { Portal } from 'shared/ui'
 
 interface Props {
@@ -8,10 +8,13 @@ interface Props {
   onClose: () => void
   children: ReactNode
   className?: string
+  lazy?: boolean
 }
 
 export const Modal = (props: Props) => {
-  const { opened, onClose, children, className } = props
+  const { opened, onClose, children, className, lazy = false } = props
+
+  const [isMounted, setIsMounted] = useState<boolean>(false)
 
   const mods: Record<string, boolean> = {
     [s.show]: opened
@@ -36,6 +39,16 @@ export const Modal = (props: Props) => {
       window.removeEventListener('keydown', onKeyDown)
     }
   }, [onKeyDown, opened])
+
+  useEffect(() => {
+    if (opened) {
+      setIsMounted(true)
+    }
+  }, [opened])
+
+  if (lazy && !isMounted) {
+    return null
+  }
 
   return <Portal>
     <div className={classNames(s.container, mods, [className as string])}>

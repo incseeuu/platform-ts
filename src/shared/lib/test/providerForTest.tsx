@@ -9,7 +9,7 @@ import { type StateScheme } from 'app/providers/StoreProvider/config/stateScheme
 
 export const ProviderForTest = (children: ReactNode, initialState?: DeepPartial<StateScheme>) => {
   return render(
-    <StoreProvider initialState={initialState}>
+    <StoreProvider initialState={initialState as StateScheme}>
       <MemoryRouter>
         <I18nextProvider i18n={i18nForTest}>
           {children}
