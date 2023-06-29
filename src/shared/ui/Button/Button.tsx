@@ -1,5 +1,5 @@
 import { type ButtonHTMLAttributes, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from 'shared/lib'
 import s from './styles.module.scss'
 
 export enum ButtonTheme {

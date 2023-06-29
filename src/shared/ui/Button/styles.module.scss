@@ -4,18 +4,32 @@
   cursor: pointer;
   background: var(--primary-color);
   border-radius: 34px;
+
+  &:active {
+    background: var(--active-btn);
+  }
 }
 
 .clear {
   padding: 0;
-  background: none;
+  background: transparent;
   color: var(--text-color);
-  outline: none;
-  border: none;
+  outline: transparent;
+  border: transparent;
+
+  &:active {
+    background: transparent;
+    border-color: transparent;
+  }
 }
 
 .outline {
   color: var(--text-color);
-  background: none;
+  background: transparent;
   border: 1px var(--primary-color) solid;
+
+  &:active {
+    background: transparent;
+    border-color: var(--active-btn);
+  }
 }

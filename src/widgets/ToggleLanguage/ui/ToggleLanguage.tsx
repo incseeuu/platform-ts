@@ -3,7 +3,7 @@ import { Button, ButtonTheme } from 'shared/ui'
 import Ru from 'shared/assets/RU.svg'
 import NotRu from 'shared/assets/NOTRU.svg'
 import s from './styles.module.scss'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from 'shared/lib'
 
 interface Props {
   className?: string
