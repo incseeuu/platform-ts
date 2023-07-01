@@ -1,10 +1,13 @@
 import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit'
-import { type StateScheme } from 'app/providers/StoreProvider/config/stateScheme'
+import { type StateScheme } from './stateScheme'
 import { userReducer } from 'entities/User/model/slice/userSlice'
+import { authorizationReducer } from 'features/Authorization'
+import { useDispatch } from 'react-redux'
 
 export const createReduxStore = (initialState?: StateScheme) => {
   const rootReducers: ReducersMapObject<StateScheme> = {
-    user: userReducer
+    user: userReducer,
+    authorization: authorizationReducer
   }
 
   return configureStore<StateScheme>({
@@ -13,3 +16,7 @@ export const createReduxStore = (initialState?: StateScheme) => {
     preloadedState: initialState
   })
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+
+export const useAppDispatch = () => useDispatch<AppDispatch>()
