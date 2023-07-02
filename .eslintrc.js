@@ -16,6 +16,8 @@ module.exports = {
     '@typescript-eslint/no-misused-promises': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
-    'react/display-name': 'off'
+    'react/display-name': 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off'
   }
 }

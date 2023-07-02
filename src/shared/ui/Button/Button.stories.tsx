@@ -31,3 +31,10 @@ export const Outline: Story = {
     theme: ButtonTheme.OUTLINE
   }
 }
+
+export const Disabled: Story = {
+  args: {
+    children: 'Disabled',
+    disabled: true
+  }
+}
