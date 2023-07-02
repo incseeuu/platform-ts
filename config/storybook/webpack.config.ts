@@ -1,4 +1,4 @@
-import type webpack from 'webpack'
+import webpack from 'webpack'
 import { type BuildPaths } from '../build/types/config'
 import path from 'path'
 import { buildStylesLoader } from '../build/loaders/buildStylesLoader'
@@ -30,6 +30,10 @@ module.exports = ({ config }: { config: webpack.Configuration }) => {
     use: ['@svgr/webpack']
   })
   config.module?.rules?.push(buildStylesLoader(true))
+
+  config.plugins?.push(new webpack.DefinePlugin({
+    __IS_DEV__: true
+  }))
 
   return config
 }

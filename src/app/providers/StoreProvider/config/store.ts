@@ -1,6 +1,6 @@
 import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit'
 import { type StateScheme } from './stateScheme'
-import { userReducer } from 'entities/User/model/slice/userSlice'
+import { userReducer } from 'entities.entites/'
 import { authorizationReducer } from 'features/Authorization'
 import { useDispatch } from 'react-redux'
 

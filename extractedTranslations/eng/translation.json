@@ -5,6 +5,7 @@
   "Home": "Home",
   "Profile": "Profile",
   "Войти": "Log In",
+  "Выйти": "Log Out",
   "Главная": "Home",
   "О нас": "About",
   "Перезагрузить страницу": "Reload page",
@@ -13,5 +14,6 @@
   "Профиль": "Profile",
   "Статьи": "Article",
   "Страница не найдена": "Page not found",
-  "Страницы не существует": "Page not found"
+  "Страницы не существует": "Page not found",
+  "Форма авторизации": "Authorization form"
 }

@@ -14,7 +14,7 @@
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
-    "test:loki": "loki test",
+    "test:loki": "loki test --port 6006",
     "test:loki:ok": "loki approve",
     "test:loki:ci": "loki --requireReference --reactUri file:./storybook-static",
     "test:visualise": "yarn run test:visualise:json && yarn run test:visualise:html",

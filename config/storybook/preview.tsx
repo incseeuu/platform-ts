@@ -18,6 +18,7 @@ const preview: Preview = {
     (Story) => <StyleDecorator><Story/></StyleDecorator>,
     (Story) => ThemeDecorator(Theme.DARK)(Story),
     (Story) => <RouterDecorator><Story/></RouterDecorator>
+    // (Story) => <I18nDecorator><Story/></I18nDecorator>
   ]
 }
 export default preview

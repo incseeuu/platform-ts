@@ -1,7 +1,7 @@
-import { type UserSchema } from 'entities/User'
+import { type UserSchema } from 'entities.entites'
 import { type AuthorizationSchema } from 'features/Authorization'
 
 export interface StateScheme {
-  user: UserSchema
+  user?: UserSchema
   authorization?: AuthorizationSchema
 }

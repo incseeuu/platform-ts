@@ -1,9 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { type User } from 'entities/User'
+import { type User, userActions } from 'entities.entites'
 import axios, { type AxiosResponse } from 'axios'
+import { AUTH_DATA_USER_KEY } from 'shared/consts/localStorage'
 
 export interface AuthorizationForm {
-  login: string
+  username: string
   password: string
 }
 
@@ -11,11 +12,19 @@ export const authorizationThunk = createAsyncThunk<User, AuthorizationForm, { re
   'authorization/fetchAuthorizationData',
   async (authData, thunkAPI) => {
     try {
-      const responseUser: AxiosResponse<User> = await axios.post('http://localhost:8000', authData)
+      const responseUser: AxiosResponse<User> = await axios.post('http://localhost:8000/login', authData)
+
+      localStorage.setItem(AUTH_DATA_USER_KEY, JSON.stringify(responseUser.data))
+      thunkAPI.dispatch(userActions.setUserData(responseUser.data))
 
       return responseUser.data
-    } catch (e) {
-      return thunkAPI.rejectWithValue('error')
+    } catch (err) {
+      if (axios.isAxiosError(err)) {
+        const error = err.message ? err.message : 'Some error occurred'
+        return thunkAPI.rejectWithValue(error)
+      } else {
+        return thunkAPI.rejectWithValue('Some error occurred')
+      }
     }
   }
 )
