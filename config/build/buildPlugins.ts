@@ -5,7 +5,10 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
-export const buildPlugins = ({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] => {
+export const buildPlugins = ({
+  paths,
+  isDev
+}: BuildOptions): webpack.WebpackPluginInstance[] => {
   const plugins: webpack.WebpackPluginInstance[] = [
     new HtmlWebpackPlugin({
       template: paths.html
@@ -19,7 +22,6 @@ export const buildPlugins = ({ paths, isDev }: BuildOptions): webpack.WebpackPlu
       __IS_DEV__: JSON.stringify(isDev)
     }),
     new ReactRefreshWebpackPlugin()
-
   ]
 
   if (isDev) {

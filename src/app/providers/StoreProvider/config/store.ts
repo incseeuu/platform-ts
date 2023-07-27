@@ -1,20 +1,26 @@
 import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit'
 import { type StateScheme } from './stateScheme'
 import { userReducer } from 'entities.entites/'
-import { authorizationReducer } from 'features/Authorization'
 import { useDispatch } from 'react-redux'
+import { createReducerManager } from './reducerManager'
 
 export const createReduxStore = (initialState?: StateScheme) => {
   const rootReducers: ReducersMapObject<StateScheme> = {
-    user: userReducer,
-    authorization: authorizationReducer
+    user: userReducer
   }
+  const reducerManager = createReducerManager(rootReducers)
 
-  return configureStore<StateScheme>({
-    reducer: rootReducers,
+  const store = configureStore<StateScheme>({
+    reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState
   })
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  store.reducerManager = reducerManager
+
+  return store
 }
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']

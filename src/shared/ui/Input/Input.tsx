@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib'
 import s from './styles.module.scss'
-import { type ChangeEvent, type InputHTMLAttributes, memo, useEffect, useRef } from 'react'
+import { type ChangeEvent, type InputHTMLAttributes, memo, useCallback } from 'react'
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 
@@ -22,21 +22,17 @@ export const Input = memo((props: Props) => {
     ...otherProps
   } = props
 
-  const ref = useRef<HTMLInputElement>(null)
-
+  // const ref = useRef<HTMLInputElement>(null)
+  const setFocus = useCallback((element: HTMLInputElement) => {
+    autofocus && element?.focus()
+  }, [autofocus])
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.currentTarget.value)
   }
 
-  useEffect(() => {
-    if (autofocus) {
-      ref.current?.focus()
-    }
-  }, [autofocus])
-
   return (
     <input
-      ref={ref}
+      ref={setFocus}
       type={type}
       value={value}
       autoFocus={autofocus}

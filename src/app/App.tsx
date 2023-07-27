@@ -33,7 +33,12 @@ const App = () => {
                   <div className={classNames('content')}>
                     <AppRouter/>
                   </div>
-                  {userData ? <div><Button theme={ButtonTheme.OUTLINE} onClick={onLogOut}>{t('Выйти')}</Button></div> : <LoginModal/>}
+                  {userData
+                    ? <div>
+                    <Button theme={ButtonTheme.OUTLINE}
+                            onClick={onLogOut}>{t('Выйти')}
+                    </Button></div>
+                    : <LoginModal/>}
                 </Suspense>
             </main>
 

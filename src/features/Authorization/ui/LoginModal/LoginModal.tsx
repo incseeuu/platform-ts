@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib'
 import s from './styles.module.scss'
-import { Button, ButtonTheme, Modal } from 'shared/ui'
-import { LoginForm } from '../LoginForm/LoginForm'
-import { useState } from 'react'
+import { Button, ButtonTheme, Loader, Modal } from 'shared/ui'
+import { LoginFormAsync } from '../LoginForm/LoginForm.async'
+import { Suspense, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface Props {
@@ -23,7 +23,7 @@ export const LoginModal = ({ className }: Props) => {
       <Button theme={ButtonTheme.OUTLINE} onClick={toggleModal}>
         {t('Войти')}
       </Button>
-      <Modal
+      {show && <Modal
         opened={show}
         onClose={toggleModal}
         lazy
@@ -32,8 +32,10 @@ export const LoginModal = ({ className }: Props) => {
           {},
           [className as string])}
       >
-        <LoginForm/>
-      </Modal>
+        <Suspense fallback={<Loader/>}>
+          <LoginFormAsync />
+        </Suspense>
+      </Modal>}
     </div>
 
   )
