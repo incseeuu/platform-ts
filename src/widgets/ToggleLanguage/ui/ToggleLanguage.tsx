@@ -4,12 +4,13 @@ import Ru from 'shared/assets/RU.svg'
 import NotRu from 'shared/assets/NOTRU.svg'
 import s from './styles.module.scss'
 import { classNames } from 'shared/lib'
+import { memo } from 'react'
 
 interface Props {
   className?: string
 }
 
-export const ToggleLanguage = ({ className }: Props) => {
+export const ToggleLanguage = memo(({ className }: Props) => {
   const { i18n } = useTranslation()
 
   const toggle = async () => {
@@ -23,4 +24,4 @@ export const ToggleLanguage = ({ className }: Props) => {
             {i18n.language === 'ru' ? <Ru/> : <NotRu/>}
         </Button>
   )
-}
+})

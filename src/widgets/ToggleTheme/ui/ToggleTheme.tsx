@@ -2,12 +2,9 @@ import { Theme, useTheme } from 'app/providers/ThemeProvider'
 import LightTheme from 'shared/assets/light.svg'
 import DarkTheme from 'shared/assets/dark.svg'
 import { Button, ButtonTheme } from 'shared/ui'
+import { memo } from 'react'
 
-interface Props {
-  className?: string
-}
-
-export const ToggleTheme = ({ className }: Props) => {
+export const ToggleTheme = memo(() => {
   const { theme, toggleTheme } = useTheme()
 
   return (
@@ -18,4 +15,4 @@ export const ToggleTheme = ({ className }: Props) => {
             {theme === Theme.LIGHT ? <DarkTheme /> : <LightTheme/>}
         </Button>
   )
-}
+})

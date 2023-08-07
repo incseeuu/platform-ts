@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { type User, userActions } from 'entities.entites'
+import { type User, userActions } from 'entities.entites/User'
 import axios, { type AxiosResponse } from 'axios'
 import { AUTH_DATA_USER_KEY } from 'shared/consts/localStorage'
 

@@ -8,7 +8,7 @@ const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateScheme>> = {
   authorization: authorizationReducer
 }
 
-export const StoreDecorator = (state: DeepPartial<StateScheme>, asyncReducers: DeepPartial<ReducersMapObject<StateScheme>>) => (Story: StoryFn) => (
+export const StoreDecorator = (state: DeepPartial<StateScheme>, asyncReducers?: DeepPartial<ReducersMapObject<StateScheme>>) => (Story: StoryFn) => (
   <StoreProvider initialState={state as StateScheme} asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}>
     <Story/>
   </StoreProvider>

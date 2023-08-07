@@ -7,12 +7,12 @@ import { memo, useCallback } from 'react'
 import { authorizationActions, authorizationReducer } from '../../model/slice/Authorization'
 import { getAuthorizationState } from '../../model/selectors/getAuthorizationState'
 import { type AuthorizationForm, authorizationThunk } from '../../model/services/authorizationThunk'
-import { useAppDispatch } from 'app/providers/StoreProvider/config/store'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import {
   DynamicReducerLoader,
   type ReducersListForLoader
 } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader'
+import { useAppDispatch } from 'app/providers/StoreProvider'
 
 const initialReducers: ReducersListForLoader = {
   authorization: authorizationReducer
@@ -20,9 +20,10 @@ const initialReducers: ReducersListForLoader = {
 
 export interface Props {
   className?: string
+  onShowModal: (show: boolean) => void
 }
 
-const LoginForm = memo(({ className }: Props) => {
+const LoginForm = memo(({ className, onShowModal }: Props) => {
   const { t } = useTranslation()
   const authorization = useSelector(getAuthorizationState)
   const dispatch = useAppDispatch()
@@ -41,16 +42,20 @@ const LoginForm = memo(({ className }: Props) => {
     [dispatch]
   )
 
-  const onLoginHandler = useCallback(() => {
+  const onLoginHandler = useCallback(async () => {
     const argForThunk = {
       username: authorization?.login,
       password: authorization?.password
     }
 
-    dispatch(authorizationThunk(argForThunk as AuthorizationForm))
-  }, [authorization?.login, authorization?.password, dispatch])
+    const result = await dispatch(authorizationThunk(argForThunk as AuthorizationForm))
 
-  const onLoginKeyboardHandler = (e: React.KeyboardEvent) => { e.key === 'Enter' && onLoginHandler() }
+    if (result.meta.requestStatus === 'fulfilled') {
+      onShowModal(false)
+    }
+  }, [authorization?.login, authorization?.password, dispatch, onShowModal])
+
+  const onLoginKeyboardHandler = useCallback((e: React.KeyboardEvent) => { e.key === 'Enter' && onLoginHandler() }, [onLoginHandler])
 
   return (
     <DynamicReducerLoader reducers={initialReducers}>

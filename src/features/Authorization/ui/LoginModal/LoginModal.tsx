@@ -33,7 +33,7 @@ export const LoginModal = ({ className }: Props) => {
           [className as string])}
       >
         <Suspense fallback={<Loader/>}>
-          <LoginFormAsync />
+          <LoginFormAsync onShowModal={setShow}/>
         </Suspense>
       </Modal>}
     </div>

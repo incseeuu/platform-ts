@@ -1,7 +1,6 @@
-import { type FC } from 'react'
+import { type FC, type SVGProps } from 'react'
 import s from './styles.module.scss'
 import { Link, type LinkProps } from 'react-router-dom'
-import { type DefaultTFuncReturn } from 'i18next'
 import { classNames } from 'shared/lib'
 
 export enum AppLinkTheme {
@@ -9,12 +8,11 @@ export enum AppLinkTheme {
   SECONDARY = 'secondary'
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
 interface Props extends LinkProps {
   className?: string
   theme?: AppLinkTheme
-  title?: string | DefaultTFuncReturn
+  title?: string
+  Icon: FC<SVGProps<SVGSVGElement>>
 }
 
 export const AppLink: FC<Props> = (props) => {
@@ -23,6 +21,7 @@ export const AppLink: FC<Props> = (props) => {
     theme = AppLinkTheme.PRIMARY,
     to,
     children,
+    Icon,
     title,
     ...restProps
   } = props
@@ -34,7 +33,7 @@ export const AppLink: FC<Props> = (props) => {
             {...restProps}
         >
             <div className={s.link}>
-                <div>{children}</div>
+                 <Icon />
                 <span>{title}</span>
             </div>
         </Link>
