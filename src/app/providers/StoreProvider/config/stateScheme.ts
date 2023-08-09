@@ -2,6 +2,7 @@ import { type UserSchema } from 'entities.entites/User'
 import { type AuthorizationSchema } from 'features/Authorization'
 import { type AnyAction, type CombinedState, type EnhancedStore, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
 import { type ProfileSchema } from 'entities.entites/Profile'
+import { type AxiosInstance } from 'axios'
 
 export interface StateScheme {
   user?: UserSchema
@@ -20,4 +21,13 @@ export interface ReducerManager {
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateScheme> {
   reducerManager: ReducerManager
+}
+
+export interface ThunkExtraArg {
+  api: AxiosInstance
+}
+
+export interface ThunkConfig<T> {
+  rejectValue: T
+  extra: ThunkExtraArg
 }

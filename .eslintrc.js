@@ -3,6 +3,10 @@ module.exports = {
     browser: true,
     es2021: true
   },
+  globals: {
+    __IS_DEV__: true,
+    __API__: true
+  },
   extends: ['plugin:react/recommended', 'standard-with-typescript', 'plugin:react/jsx-runtime', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
   overrides: [],
   parserOptions: {
@@ -19,6 +23,7 @@ module.exports = {
     'react/display-name': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
-    '@typescript-eslint/no-dynamic-delete': 'off'
+    '@typescript-eslint/no-dynamic-delete': 'off',
+    '@typescript-eslint/naming-convention': 'off'
   }
 }

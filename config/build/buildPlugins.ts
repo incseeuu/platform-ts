@@ -7,7 +7,8 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 export const buildPlugins = ({
   paths,
-  isDev
+  isDev,
+  apiUrl
 }: BuildOptions): webpack.WebpackPluginInstance[] => {
   const plugins: webpack.WebpackPluginInstance[] = [
     new HtmlWebpackPlugin({
@@ -19,7 +20,8 @@ export const buildPlugins = ({
       chunkFilename: 'css/[name].[contenthash:8].css'
     }),
     new webpack.DefinePlugin({
-      __IS_DEV__: JSON.stringify(isDev)
+      __IS_DEV__: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiUrl)
     }),
     new ReactRefreshWebpackPlugin()
   ]

@@ -10,7 +10,6 @@ export const ToggleTheme = memo(() => {
   return (
         <Button
             theme={ButtonTheme.CLEAR}
-            // className={classNames(s.toggleTheme, {}, [className])}
             onClick={toggleTheme}>
             {theme === Theme.LIGHT ? <DarkTheme /> : <LightTheme/>}
         </Button>

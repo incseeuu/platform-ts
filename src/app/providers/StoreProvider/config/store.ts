@@ -3,18 +3,28 @@ import { type StateScheme } from './stateScheme'
 import { useDispatch } from 'react-redux'
 import { createReducerManager } from './reducerManager'
 import { userReducer } from 'entities.entites/User'
+import { $api } from 'shared/api/api'
 
-export const createReduxStore = (initialState?: StateScheme, asyncReducers?: DeepPartial<ReducersMapObject<StateScheme>>) => {
+export const createReduxStore = (
+  initialState?: StateScheme,
+  asyncReducers?: DeepPartial<ReducersMapObject<StateScheme>>) => {
   const rootReducers: ReducersMapObject<StateScheme> = {
     ...asyncReducers,
     user: userReducer
   }
   const reducerManager = createReducerManager(rootReducers)
 
-  const store = configureStore<StateScheme>({
+  const store = configureStore({
     reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
-    preloadedState: initialState
+    preloadedState: initialState,
+    middleware: getDefaultMiddleware => getDefaultMiddleware({
+      thunk: {
+        extraArgument: {
+          api: $api
+        }
+      }
+    })
   })
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

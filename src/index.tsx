@@ -12,14 +12,13 @@ import { StoreProvider } from 'app/providers/StoreProvider'
 const root = document.getElementById('root')
 
 createRoot(root as HTMLElement).render(
-  <StoreProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <StoreProvider>
       <ErrorBoundary fallback={<Suspense><PageError/></Suspense>}>
         <ThemeProvider>
           <App/>
         </ThemeProvider>
       </ErrorBoundary>
-    </BrowserRouter>
-  </StoreProvider>
-
+    </StoreProvider>
+  </BrowserRouter>
 )
