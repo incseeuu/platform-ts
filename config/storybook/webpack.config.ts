@@ -15,6 +15,8 @@ module.exports = ({ config }: { config: webpack.Configuration }) => {
   config.resolve?.extensions?.push('.ts', '.tsx')
 
   if (config.module?.rules != null) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     config.module.rules = config.module.rules.map((rule: webpack.RuleSetRule) => {
       // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       if (rule.test && (rule.test as RegExp).test('.svg')) {

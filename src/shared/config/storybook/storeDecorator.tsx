@@ -3,8 +3,9 @@ import { type StateScheme } from 'app/providers/StoreProvider/config/stateScheme
 import { type StoryFn } from '@storybook/react'
 import { type DeepPartial, type ReducersMapObject } from '@reduxjs/toolkit'
 import { authorizationReducer } from 'features/Authorization'
+import { type ReducersListForLoader } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader'
 
-const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateScheme>> = {
+const defaultAsyncReducers: ReducersListForLoader = {
   authorization: authorizationReducer
 }
 

@@ -9,8 +9,6 @@ export type ReducersListForLoader = {
   [name in StateSchemeKey]?: Reducer
 }
 
-type ReducersListEntries = [StateSchemeKey, Reducer]
-
 interface Props {
   children: ReactElement<any, any>
   reducers: ReducersListForLoader
@@ -22,15 +20,15 @@ export const DynamicReducerLoader = ({ children, reducers, isRemoveAfterUnmount 
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    Object.entries(reducers).forEach(([name, reducer]: ReducersListEntries) => {
-      store.reducerManager.add(name, reducer)
+    Object.entries(reducers).forEach(([name, reducer]) => {
+      store.reducerManager.add(name as StateSchemeKey, reducer)
       dispatch({ type: `@INIT ${name} reducer` })
     })
 
     return () => {
       if (isRemoveAfterUnmount) {
-        Object.entries(reducers).forEach(([name, _]: ReducersListEntries) => {
-          store.reducerManager.remove(name)
+        Object.entries(reducers).forEach(([name, _]) => {
+          store.reducerManager.remove(name as StateSchemeKey)
           dispatch({ type: `@REMOVE ${name} reducer` })
         })
       }

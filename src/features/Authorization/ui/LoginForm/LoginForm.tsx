@@ -43,12 +43,12 @@ const LoginForm = memo(({ className, onShowModal }: Props) => {
   )
 
   const onLoginHandler = useCallback(async () => {
-    const argForThunk = {
-      username: authorization?.login,
-      password: authorization?.password
+    const argForThunk: AuthorizationForm = {
+      username: authorization?.login ?? '',
+      password: authorization?.password ?? ''
     }
 
-    const result = await dispatch(authorizationThunk(argForThunk as AuthorizationForm))
+    const result = await dispatch(authorizationThunk(argForThunk))
 
     if (result.meta.requestStatus === 'fulfilled') {
       onShowModal(false)
