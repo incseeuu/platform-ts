@@ -1,21 +1,25 @@
-import { configureStore, type DeepPartial, type ReducersMapObject } from '@reduxjs/toolkit'
+import {
+  type CombinedState,
+  configureStore,
+  type DeepPartial,
+  type Reducer,
+  type ReducersMapObject
+} from '@reduxjs/toolkit'
 import { type StateScheme } from './stateScheme'
 import { useDispatch } from 'react-redux'
 import { createReducerManager } from './reducerManager'
-import { userReducer } from 'entities.entites/User'
 import { $api } from 'shared/api/api'
 
 export const createReduxStore = (
   initialState?: StateScheme,
   asyncReducers?: DeepPartial<ReducersMapObject<StateScheme>>) => {
   const rootReducers: ReducersMapObject<StateScheme> = {
-    ...asyncReducers,
-    user: userReducer
+    ...asyncReducers
   }
   const reducerManager = createReducerManager(rootReducers)
 
   const store = configureStore({
-    reducer: reducerManager.reduce,
+    reducer: reducerManager.reduce as Reducer<CombinedState<StateScheme>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
     middleware: getDefaultMiddleware => getDefaultMiddleware({
