@@ -1,21 +1,21 @@
-import { classNames } from 'shared/lib'
-import { useTranslation } from 'react-i18next'
 import s from './styles.module.scss'
+import { HeaderCard } from 'entities.entites/Profile/ui/ProfileCard/HeaderCard'
+import { BodyCard } from './BodyCard'
 import { useSelector } from 'react-redux'
-import { profileDataSelector } from '../../model/selectors/profileDataSelector'
+import { profileReadonlySelector } from 'entities.entites/Profile'
+import { classNames } from 'shared/lib'
 
-interface Props {
-  className?: string
-}
+export const ProfileCard = () => {
+  const readonly = useSelector(profileReadonlySelector)
 
-export const ProfileCard = ({ className }: Props) => {
-  const profileData = useSelector(profileDataSelector)
-
-  const { t } = useTranslation()
+  const mods = {
+    [s.readonly]: !readonly
+  }
 
   return (
-        <div className={classNames(s.container, {}, [className])}>
-
+        <div className={classNames(s.container, mods, [])}>
+          <HeaderCard/>
+          <BodyCard/>
         </div>
   )
 }

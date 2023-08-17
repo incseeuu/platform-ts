@@ -21,5 +21,15 @@
   "Логин":"Логин",
   "Войти":"Войти",
   "Форма авторизации":"Форма авторизации",
-  "Выйти":"Выйти"
+  "Выйти":"Выйти",
+  "Change profile":"Change profile",
+  "Name":"Name",
+  "Nickname":"Nickname",
+  "Surname":"Surname",
+  "Avatar link":"Avatar link",
+  "Currency":"Currency",
+  "City":"City",
+  "Country":"Country",
+  "Save":"Save",
+  "Cancel":"Cancel"
 }

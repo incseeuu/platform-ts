@@ -4,9 +4,9 @@
   justify-content: space-between;
   height: calc(100vh - var(--navbar-height));
   width: var(--sidebar-width);
-  background: var(--third-bg-color);
+  background: var(--second-bg-color);
   border-radius: 32px;
-  margin: 32px;
+  margin-top: 2rem;
   position: relative; 
   transition: 0.3s ease-in-out;
 }

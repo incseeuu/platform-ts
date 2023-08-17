@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 32px;
+  background: var(--dark-bg-color);
+  color: var(--text-color);
+  transition: 0.3s ease-in-out;
+}
+
+.readonly {
+  background: var(--second-bg-color);
+}
+
+.header {
+  position: relative;
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  .btnContainer {
+    position: absolute;
+    margin-left: 25rem;
+
+    .saveCancelContainer {
+      display: flex;
+      gap: 10px;
+    }
+  }
+}
+
+.body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 1rem;
+  margin: 2rem;
+
+  .bodyItem {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .bodyInput {
+    width: 100%;
+  }
+}

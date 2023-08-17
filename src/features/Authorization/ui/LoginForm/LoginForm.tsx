@@ -60,7 +60,7 @@ const LoginForm = memo(({ className, onShowModal }: Props) => {
   return (
     <DynamicReducerLoader reducers={initialReducers}>
     <div className={classNames(s.container, {}, [className as string])}>
-      <Text title={t('Форма авторизации') } theme={TextTheme.PRIMARY}/>
+      <Text title={t('Форма авторизации') } theme={TextTheme.PRIMARY} />
       <Input
         placeholder={'Login'}
         value={authorization?.login}

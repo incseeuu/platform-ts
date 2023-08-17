@@ -1,3 +1,8 @@
 export type { Profile, ProfileSchema } from './model/types/types'
 export { profileReducer, profileActions } from './model/slice/slice'
 export { fetchProfileDataThunk } from './model/services/fetchProfileDataThunk'
+export { updateProfileData } from './model/services/updateProfileData'
+export { ProfileCard } from './ui/ProfileCard/ProfileCard'
+export { profileFetchingDataSelector } from './model/selectors/profileFetchingDataSelector'
+export { profileReadonlySelector } from './model/selectors/profileReadonlySelector'
+export { profileUiDataSelector } from './model/selectors/profileUiDataSelector'

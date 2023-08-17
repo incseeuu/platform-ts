@@ -1,39 +1,64 @@
 .btn {
-  padding: 8px 16px;
-  color: var(--inverted-text-color);
   cursor: pointer;
+  border-radius: 2rem;
+}
+
+.primary {
   background: var(--primary-color);
-  border-radius: 34px;
+  color: var(--inverted-text-color);
+  border: 1px var(--primary-color) solid;
+
 
   &:active {
-    background: var(--active-btn);
+    background: var(--primary-dark-color);
   }
 }
+
+.warning {
+  background: var(--warning-color);
+  color: var(--text-color);
+  border: 1px var(--warning-color) solid;
+
+  &:active {
+    background: var(--warning-dark-color);
+  }
+}
+
+.contained {
+  border-color: transparent;
+}
+
 
 .clear {
   padding: 0;
   background: transparent;
   color: var(--text-color);
   outline: transparent;
-  border: transparent;
+  border-color: transparent;
 
   &:active {
     background: transparent;
-    border-color: transparent;
   }
 }
 
 .outline {
   color: var(--text-color);
   background: transparent;
-  border: 1px var(--primary-color) solid;
+
 
   &:active {
     background: transparent;
-    border-color: var(--active-btn);
   }
 }
 
 .disabled {
   opacity: 0.5;
+}
+
+.default {
+  padding: 8px 16px;
+}
+
+.small {
+  padding: 4px 8px;
 }

@@ -2,14 +2,15 @@ import { classNames } from 'shared/lib'
 import s from './styles.module.scss'
 import { type ChangeEvent, type InputHTMLAttributes, memo, useCallback } from 'react'
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
 interface Props extends HTMLInputProps {
   className?: string
-  value?: string
+  value?: string | number
   type?: string
   autofocus?: boolean
   onChange?: (value: string) => void
+  readonly?: boolean
 }
 
 export const Input = memo((props: Props) => {
@@ -19,15 +20,19 @@ export const Input = memo((props: Props) => {
     type = 'text',
     onChange,
     autofocus = false,
+    readonly = false,
     ...otherProps
   } = props
 
-  // const ref = useRef<HTMLInputElement>(null)
   const setFocus = useCallback((element: HTMLInputElement) => {
     autofocus && element?.focus()
   }, [autofocus])
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.currentTarget.value)
+  }
+
+  const mods = {
+    [s.readonly]: readonly
   }
 
   return (
@@ -37,7 +42,8 @@ export const Input = memo((props: Props) => {
       value={value}
       autoFocus={autofocus}
       onChange={onChangeHandler}
-      className={classNames(s.input, {}, [className])}
+      className={classNames(s.input, mods, [className])}
+      readOnly={readonly}
       {...otherProps}
     />
   )
