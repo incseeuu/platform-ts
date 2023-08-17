@@ -7,11 +7,18 @@ export enum TextTheme {
   PRIMARY = 'primary'
 }
 
+export enum TextAlign {
+  START = 'start',
+  CENTER = 'center',
+  END = 'end'
+}
+
 interface Props {
   className?: string
   title?: string | null
   text?: string | null
   theme?: TextTheme
+  textAlign?: TextAlign
 }
 
 export const Text = (props: Props) => {
@@ -19,11 +26,12 @@ export const Text = (props: Props) => {
     className,
     text,
     title,
-    theme = TextTheme.DEFAULT
+    theme = TextTheme.DEFAULT,
+    textAlign = TextAlign.START
   } = props
 
   return (
-        <div className={classNames(s.container, {}, [s[theme], className as string])}>
+        <div className={classNames(s.container, {}, [className, s[theme], s[textAlign]])}>
           {title && <p className={s.title}>{title}</p>}
           {text && <p className={s.text}>{text}</p>}
         </div>

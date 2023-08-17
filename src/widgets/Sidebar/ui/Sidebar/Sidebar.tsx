@@ -17,7 +17,7 @@ export const Sidebar = memo(({ className }: Props) => {
 
   const itemsLinks = useMemo(() => {
     return sidebarItemsList.map(el => (
-     <SidebarItem key={el.path} path={el.path} title={el.title} Icon={el.Icon} />
+     <SidebarItem key={el.path} path={el.path} title={el.title} Icon={el.Icon} authOnly={el.authOnly}/>
     ))
   }, [])
 
