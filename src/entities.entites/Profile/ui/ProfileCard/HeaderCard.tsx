@@ -12,11 +12,7 @@ import { useAppDispatch } from 'app/providers/StoreProvider'
 import { ButtonColor } from 'shared/ui/Button/Button'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 
-interface Props {
-  className?: string
-}
-
-export const HeaderCard = ({ className }: Props) => {
+export const HeaderCard = () => {
   const readonly = useSelector(profileReadonlySelector)
   const profile = useSelector(profileUiDataSelector)
   const dispatch = useAppDispatch()
@@ -33,7 +29,9 @@ export const HeaderCard = ({ className }: Props) => {
 
   const saveUiDataToServer = () => {
     dispatch(updateProfileData())
-    dispatch(profileActions.toggleReadOnly(true))
+      .unwrap()
+      .then(() => dispatch(profileActions.toggleReadOnly(true)))
+      .catch(e => { console.error(e) })
   }
 
   return (

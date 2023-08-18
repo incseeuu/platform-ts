@@ -11,7 +11,10 @@ interface Props {
 }
 
 export const StoreProvider = ({ children, initialState, asyncReducers }: Props) => {
-  const store = createReduxStore(initialState, asyncReducers)
+  const store = createReduxStore(
+    initialState as StateScheme,
+    asyncReducers as ReducersMapObject<StateScheme>
+  )
 
   return (
     <Provider store={store}>

@@ -16,7 +16,7 @@ interface Props extends HTMLInputProps {
 export const Input = memo((props: Props) => {
   const {
     className = '',
-    value,
+    value = '',
     type = 'text',
     onChange,
     autofocus = false,
@@ -28,7 +28,7 @@ export const Input = memo((props: Props) => {
     autofocus && element?.focus()
   }, [autofocus])
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange?.(e.currentTarget.value)
+    onChange?.(e.target.value)
   }
 
   const mods = {

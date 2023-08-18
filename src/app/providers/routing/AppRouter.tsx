@@ -9,7 +9,9 @@ const AppRouter = () => {
   const userData = useSelector(getUserData)
 
   const routes = useMemo(() => {
-    return Object.values(routeConfig).filter(el => !el.authOnly && !userData)
+    return Object.values(routeConfig).filter(el => {
+      return !(el.authOnly && !userData)
+    })
   }, [userData])
 
   return (
