@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { type ProfileSchema } from '../types/types'
-import { fetchProfileDataThunk } from 'entities.entites/Profile'
-import { updateProfileData } from '../services/updateProfileData'
+import { fetchProfileDataThunk, updateProfileData } from 'entities.entites/Profile'
 
 const initialState: ProfileSchema = {
   fetchProfileData: undefined,
   uiProfileData: {},
   isLoading: false,
   readonly: true,
+  validateError: [],
   errorMessage: null
 }
 
@@ -26,11 +26,12 @@ const slice = createSlice({
     },
     cancelModified: (state) => {
       state.uiProfileData = state.fetchProfileData
+      state.validateError = []
     }
   },
   extraReducers: builder => {
     builder
-      .addCase(fetchProfileDataThunk.pending, (state, action) => {
+      .addCase(fetchProfileDataThunk.pending, (state) => {
         state.isLoading = true
       })
       .addCase(fetchProfileDataThunk.fulfilled, (state, action) => {
@@ -42,7 +43,7 @@ const slice = createSlice({
         state.isLoading = false
         state.errorMessage = action.payload ?? null
       })
-      .addCase(updateProfileData.pending, (state, action) => {
+      .addCase(updateProfileData.pending, (state) => {
         state.isLoading = true
       })
       .addCase(updateProfileData.fulfilled, (state, action) => {
@@ -52,7 +53,7 @@ const slice = createSlice({
       })
       .addCase(updateProfileData.rejected, (state, action) => {
         state.isLoading = false
-        state.errorMessage = action.payload ?? null
+        state.validateError = action.payload
       })
   }
 })

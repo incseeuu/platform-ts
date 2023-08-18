@@ -1,7 +1,6 @@
 import {
   type CombinedState,
   configureStore,
-  type DeepPartial,
   type Reducer,
   type ReducersMapObject
 } from '@reduxjs/toolkit'
@@ -9,12 +8,14 @@ import { type StateScheme } from './stateScheme'
 import { useDispatch } from 'react-redux'
 import { createReducerManager } from './reducerManager'
 import { $api } from 'shared/api/api'
+import { userReducer } from 'entities.entites/User'
 
 export const createReduxStore = (
   initialState?: StateScheme,
-  asyncReducers?: DeepPartial<ReducersMapObject<StateScheme>>) => {
+  asyncReducers?: ReducersMapObject<StateScheme>) => {
   const rootReducers: ReducersMapObject<StateScheme> = {
-    ...asyncReducers
+    ...asyncReducers,
+    user: userReducer
   }
   const reducerManager = createReducerManager(rootReducers)
 

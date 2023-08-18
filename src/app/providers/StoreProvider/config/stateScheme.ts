@@ -5,7 +5,7 @@ import { type ProfileSchema } from 'entities.entites/Profile'
 import { type AxiosInstance } from 'axios'
 
 export interface StateScheme {
-  user?: UserSchema
+  user: UserSchema
   authorization?: AuthorizationSchema
   profile?: ProfileSchema
 }
