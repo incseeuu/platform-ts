@@ -23,7 +23,7 @@ export const CountrySelect = memo(({ value, onChange, readonly }: Props) => {
 
   return (
     <Select
-      label={'Укажите город'}
+      label={'Укажите страну'}
       options={options}
       value={value}
       onChange={onChangeHandler}

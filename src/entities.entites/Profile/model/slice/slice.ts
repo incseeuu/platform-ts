@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { type ProfileSchema } from '../types/types'
-import { fetchProfileDataThunk, updateProfileData } from 'entities.entites/Profile'
+import { fetchProfileDataThunk, updateProfileData } from '../../../Profile'
 
 const initialState: ProfileSchema = {
   fetchProfileData: undefined,

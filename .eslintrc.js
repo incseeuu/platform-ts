@@ -5,7 +5,8 @@ module.exports = {
   },
   globals: {
     __IS_DEV__: true,
-    __API__: true
+    __API__: true,
+    __PROJECT__: true
   },
   extends: ['plugin:react/recommended', 'standard-with-typescript', 'plugin:react/jsx-runtime', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
   overrides: [],

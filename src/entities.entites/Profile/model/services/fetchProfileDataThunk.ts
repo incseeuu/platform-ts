@@ -9,6 +9,10 @@ export const fetchProfileDataThunk = createAsyncThunk<Profile, void, ThunkConfig
     try {
       const responseProfile: AxiosResponse<Profile> = await thunkAPI.extra.api.get('/profile')
 
+      if (!responseProfile.data) {
+        throw new Error()
+      }
+
       return responseProfile.data
     } catch (err) {
       if (axios.isAxiosError(err)) {

@@ -20,7 +20,9 @@ const Profile = ({ className }: Props) => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(fetchProfileDataThunk())
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileDataThunk())
+    }
   }, [dispatch])
 
   return (
