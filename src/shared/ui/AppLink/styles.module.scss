@@ -5,7 +5,7 @@
 }
 
 .primary {
-  color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .secondary {
@@ -25,6 +25,5 @@
 
 .active {
   background: linear-gradient(89.97deg, rgb(94 211 243 / 30%) 1.15%, rgb(94 211 243 / 0%) 99.97%);
-  border-left: 2px solid #5ED3F3;
-  color: var(--primary-color);
+  border-left: 2px solid var(--primary-color);
 }
