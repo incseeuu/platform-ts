@@ -29,6 +29,7 @@ export const buildPlugins = ({
   ]
 
   if (isDev) {
+    plugins.push(new ReactRefreshWebpackPlugin())
     plugins.push(new webpack.HotModuleReplacementPlugin())
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
